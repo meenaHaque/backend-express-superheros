@@ -1,9 +1,11 @@
 const express = require("express");
+const superheroes = require("./database/superheros");
 const app = express();
 let port = process.env.PORT || 3000;
 
-app.get("/", (req, res) => {
-	res.send("<h1>Hello World!</h1>");
+app.get("/api/v1/superheros/", (req, res) => {
+	res.setHeader("Content-Type", "application/json");
+	res.end(JSON.stringify(superheroes));
 });
 
 app.listen(port, () => {
