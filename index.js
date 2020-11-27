@@ -1,7 +1,10 @@
 const express = require("express");
+const cors = require("cors"); // middleware
 const superheroes = require("./database/superheros");
 const app = express();
-let port = process.env.PORT || 3000;
+let port = process.env.PORT || 3001;
+
+app.use(cors());
 
 app.get("/api/v1/superheros/", (req, res) => {
 	res.setHeader("Content-Type", "application/json");
