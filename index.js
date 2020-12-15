@@ -11,6 +11,10 @@ app.get("/api/v1/superheros/", (req, res) => {
 	res.end(JSON.stringify(superheroes));
 });
 
+app.get("/api/v1/superheros/:id", (req, res) => {
+	res.send(superheroes[req.params.id]);
+});
+
 app.listen(port, () => {
 	console.log(`Example app is listening on port http://localhost:${port}`);
 });
